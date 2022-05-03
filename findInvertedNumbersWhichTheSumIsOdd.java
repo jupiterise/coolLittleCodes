@@ -1,16 +1,16 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
-
         Set<Integer> control = new HashSet<>();
         for (int i = 0; i < 1000000; i++) {
-            String invertedSequence = invertSequence(String.valueOf(i));
-            int invertedNumber = Integer.parseInt(invertedSequence);
-            int sumValue = i + invertedNumber;
-            if (!control.contains(invertedNumber)) {
+            final String invertedSequence = invertSequence(String.valueOf(i));
+            final int invertedNumber = Integer.parseInt(invertedSequence);
+            final int sumValue = i + invertedNumber;
+            final String number = String.valueOf(i);
+            if (!control.contains(invertedNumber) && number.charAt(number.length() - 1) != '0') {
                 control.add(i);
                 if (sumValue % 2 != 0) {
                     System.out.printf("%s + %s = %s \n", i, invertedNumber, sumValue);
